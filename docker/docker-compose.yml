@@ -37,15 +37,7 @@ services:
 
   airflow-init:
     <<: *airflow-common
-    command: >
-      bash -c "airflow db init &&
-               airflow users create
-               --username admin
-               --password admin
-               --firstname Nvafeomo
-               --lastname Konneh
-               --role Admin
-               --email nvafeomo05@gmail.com"
+    command: bash -c "airflow db migrate && airflow users create --username admin --password admin --firstname Nvafeomo --lastname Konneh --role Admin --email nvafeomo05@gmail.com"
     restart: "no"
 
   airflow-webserver:
