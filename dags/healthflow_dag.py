@@ -90,6 +90,13 @@ def run_load(**context):
     load(clean_path)
 
 
+# ── Task 4: Quality checks ───────────────────────────────────────────────────
+
+def run_quality(**context):
+    from scripts.quality import run_quality_checks
+    run_quality_checks()
+
+
 # ── DAG definition ───────────────────────────────────────────────────────────
 
 with DAG(
@@ -117,4 +124,9 @@ with DAG(
         python_callable=run_load,
     )
 
-    extract_task >> transform_task >> load_task
+    quality_task = PythonOperator(
+        task_id="quality",
+        python_callable=run_quality,
+    )
+
+    extract_task >> transform_task >> load_task >> quality_task
