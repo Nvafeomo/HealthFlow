@@ -1,6 +1,6 @@
 # HealthFlow
 
-A 14-day end-to-end ETL pipeline that ingests weekly CDC mortality data, transforms it in Databricks using PySpark, and loads it into PostgreSQL — orchestrated by Apache Airflow.
+A end-to-end ETL pipeline that ingests weekly CDC mortality data, transforms it in Databricks using PySpark, and loads it into PostgreSQL — orchestrated by Apache Airflow.
 
 ## Architecture
 
