@@ -2,10 +2,14 @@ import requests
 import pandas as pd
 import os
 from datetime import datetime
+from dotenv import load_dotenv
 
-BASE_URL = "https://data.cdc.gov/resource/g4ie-h725.json"
+load_dotenv()
+
+BASE_URL = "https://data.cdc.gov/resource/muzy-jte6.json"
 STAGING_DIR = "data/staging"
 LIMIT = 1000
+APP_TOKEN = os.environ.get("SOCRATA_APP_TOKEN", "")
 
 
 def extract():
@@ -18,6 +22,10 @@ def extract():
         response = requests.get(
             BASE_URL,
             params={"$limit": LIMIT, "$offset": offset},
+            headers={
+                "User-Agent": "HealthFlow-ETL/1.0 (nvafeomo05@gmail.com)",
+                "X-App-Token": APP_TOKEN
+            },
             timeout=30
         )
         response.raise_for_status()

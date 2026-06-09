@@ -7,20 +7,28 @@ from scripts.extract import extract
 # Fake CDC API rows to use in tests
 FAKE_BATCH = [
     {
-        "yearstart": "2020",
-        "locationabbr": "CA",
-        "topic": "Diabetes",
-        "question": "Prevalence of diabetes",
-        "datavalue": "9.5",
-        "datavalueunit": "%"
+        "data_as_of": "2023-09-27T00:00:00.000",
+        "jurisdiction_of_occurrence": "California",
+        "mmwryear": "2020",
+        "mmwrweek": "1",
+        "week_ending_date": "2020-01-04",
+        "all_cause": "60179",
+        "natural_cause": "55010",
+        "diseases_of_heart_i00_i09": "14204",
+        "covid_19_u071_multiple_cause_of_death": "0",
+        "covid_19_u071_underlying_cause_of_death": "0"
     },
     {
-        "yearstart": "2020",
-        "locationabbr": "TX",
-        "topic": "Diabetes",
-        "question": "Prevalence of diabetes",
-        "datavalue": "11.2",
-        "datavalueunit": "%"
+        "data_as_of": "2023-09-27T00:00:00.000",
+        "jurisdiction_of_occurrence": "Texas",
+        "mmwryear": "2020",
+        "mmwrweek": "1",
+        "week_ending_date": "2020-01-04",
+        "all_cause": "60179",
+        "natural_cause": "55010",
+        "diseases_of_heart_i00_i09": "14204",
+        "covid_19_u071_multiple_cause_of_death": "0",
+        "covid_19_u071_underlying_cause_of_death": "0"
     }
 ]
 
