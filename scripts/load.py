@@ -9,7 +9,10 @@ DB_URL = os.environ["HEALTHFLOW_DB_URL"]
 
 
 def load(parquet_path: str):
-    df = pd.read_parquet(parquet_path)
+    if parquet_path.endswith(".csv"):
+        df = pd.read_csv(parquet_path)
+    else:
+        df = pd.read_parquet(parquet_path)
     print(f"Loaded {len(df)} rows from {parquet_path}")
 
     engine = create_engine(DB_URL)
